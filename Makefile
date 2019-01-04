@@ -1,12 +1,13 @@
+PKG = github.com/luopengift/version
 MAIN = cmd/main.go
-APP = print_info
-VERSION	= 1.0.0
 
+APP = $(shell basename `pwd`)
+APPVERSION = 1.0.0
+GOVERSION = $(shell go version)
 TIME = $(shell date "+%F %T")
 GIT = $(shell git rev-parse HEAD)
-PKG = github.com/luopengift/version
 
-FLAG = "-X '${PKG}.VERSION=${VERSION}' -X '${PKG}.APP=${APP}' -X '${PKG}.TIME=${TIME}' -X '${PKG}.GIT=${GIT}'"
+FLAG = "-X '${PKG}.APP=${APP}' -X '${PKG}.APPVERSION=${APPVERSION}' -X '${PKG}.GOVERSION=${GOVERSION}' -X '${PKG}.GIT=${GIT}' -X '${PKG}.TIME=${TIME}'"
 build: 
 	go build -ldflags $(FLAG) -o ${APP} ${MAIN}
 .PHONY: 

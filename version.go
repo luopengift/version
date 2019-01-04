@@ -6,13 +6,14 @@ import (
 
 // export build var
 var (
-	VERSION string
-	TIME    string
-	APP     string
-	GIT     string
+	APP        string
+	APPVERSION string
+	GOVERSION  string
+	TIME       string
+	GIT        string
 )
 
 // String to string
 func String() string {
-	return fmt.Sprintf("version: %v, buildTime: %v, buildTag: %v", VERSION, TIME, GIT)
+	return fmt.Sprintf("app: %v\nversion: %v\ngoVersion: %v\nbuildTime: %v\nbuildTag: %v", APP, APPVERSION, GOVERSION, TIME, GIT)
 }
